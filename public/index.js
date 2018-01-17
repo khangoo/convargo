@@ -182,8 +182,8 @@ for(var i=0; i<deliveries.length; i++)
 
   //Exercice 3
   var commission = deliveries[i].price * 0.7;
-  deliveries[i].insurance = commission / 2;
-  deliveries[i].treasury = Math.floor(deliveries[i].distance / 500);
-  deliveries[i].convargo = deliveries[i].price - (deliveries[i].insurance + deliveries[i].treasury);
+  deliveries[i].commission.insurance = commission / 2;
+  deliveries[i].commission.treasury = 1 + Math.floor(deliveries[i].distance / 500);
+  deliveries[i].commission.convargo = commission - (deliveries[i].commission.insurance + deliveries[i].commission.treasury);
 }
 console.log(deliveries);
