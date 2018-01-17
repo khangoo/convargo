@@ -159,6 +159,22 @@ for(var i=0; i<deliveries.length; i++)
       pricePerVolume = truckers[j].pricePerVolume;
     }
   };
-  deliveries[i].price = pricePerKm * deliveries[i].distance + pricePerVolume * deliveries[i].volume;
+
+//Exercice 2
+  var decreased = 1
+  if (deliveries[i].volume > 25)
+  {
+    decreased = 0.5;
+  }
+  else if (deliveries[i].volume > 10)
+  {
+    decreased = 0.7;
+  }
+  else if (deliveries[i].volume > 5)
+  {
+    decreased = 0.9;
+  }
+  deliveries[i].price = (pricePerKm * deliveries[i].distance + pricePerVolume * deliveries[i].volume) * decreased;
+  //deliveries[i].price = pricePerKm * deliveries[i].distance + pricePerVolume * deliveries[i].volume;
 }
 console.log(deliveries);
