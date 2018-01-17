@@ -36,6 +36,7 @@ var deliveries = [{
   'price': 0,
   'commission': {
     'insurance': 0,
+    'treasury' : 0,
     'convargo': 0
   }
 }, {
@@ -50,6 +51,7 @@ var deliveries = [{
   'price': 0,
   'commission': {
     'insurance': 0,
+    'treasury' : 0,
     'convargo': 0
   }
 }, {
@@ -64,6 +66,7 @@ var deliveries = [{
   'price': 0,
   'commission': {
     'insurance': 0,
+    'treasury' : 0,
     'convargo': 0
   }
 }];
@@ -176,5 +179,11 @@ for(var i=0; i<deliveries.length; i++)
   }
   deliveries[i].price = (pricePerKm * deliveries[i].distance + pricePerVolume * deliveries[i].volume) * decreased;
   //deliveries[i].price = pricePerKm * deliveries[i].distance + pricePerVolume * deliveries[i].volume;
+
+  //Exercice 3
+  var commission = deliveries[i].price * 0.7;
+  deliveries[i].insurance = commission / 2;
+  deliveries[i].treasury = Math.floor(deliveries[i].distance / 500);
+  deliveries[i].convargo = deliveries[i].price - (deliveries[i].insurance + deliveries[i].treasury);
 }
 console.log(deliveries);
