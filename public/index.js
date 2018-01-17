@@ -141,6 +141,24 @@ const actors = [{
   }]
 }];
 
+
 console.log(truckers);
 console.log(deliveries);
 console.log(actors);
+
+//Exercice 1
+for(var i=0; i<deliveries.length; i++)
+{
+  var pricePerKm = 0;
+  var pricePerVolume = 0;
+  for(var j=0; j<truckers.length; j++)
+  {
+    if (deliveries[i].truckerId === truckers[j].id)
+    {
+      pricePerKm = truckers[j].pricePerKm;
+      pricePerVolume = truckers[j].pricePerVolume;
+    }
+  };
+  deliveries[i].price = pricePerKm * deliveries[i].distance + pricePerVolume * deliveries[i].volume;
+}
+console.log(deliveries);
