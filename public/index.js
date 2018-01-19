@@ -190,48 +190,51 @@ for(var i=0; i<deliveries.length; i++)
   //Exercice 4
   if (deliveries[i].options.deductibleReduction == true)
   {
-      deliveries[i].price = deliveries[i].price + 200;
+      deliveries[i].price = deliveries[i].price;
       deliveries[i].commission.convargo = deliveries[i].commission.convargo + (deliveries[i].volume);
   }
   else
   {
-    deliveries[i].price = deliveries[i].price + 1000;
+    deliveries[i].price = deliveries[i].price;
   }
 
   //Exercice 5
-  /*for(var k=0; k<actors.length; k++)
+  for(var k=0; k<actors.length; k++)
   {
-        var amount = 0;
         if (deliveries[i].id === actors[k].deliveryId)
         {
-          if(actors[k].payment.who = "shipper")
+          for(var l=0; l<actors[k].payment.length; l++)
           {
-            if(deliveries[i].options.deductibleReduction == true){
-            amount = deliveries[i].price + 200;}
-            else
-            {amount = deliveries[i].price + 1000
+            if(actors[k].payment[l].who == "shipper")
+            {
+              if(deliveries[i].options.deductibleReduction == true)
+              {
+                actors[k].payment[l].amount = deliveries[i].price;
+              }
+              else
+              {
+                actors[k].payment[l].amount = deliveries[i].price;
+              }
             }
-          }
-          if (actors[k].payment.who = "owner")
-          {
-            amount = deliveries[i].price - commission;
-          }
-          if (actors[k].payment.who = "treasury")
-          {
-            amount = 1 + Math.floor(deliveries[i].distance / 500);
-          }
-          if (actors[k].payment.who = "insurance")
-          {
-            amount = commission / 2;
-          }
-          if (actors[k].payment.who = "convargo")
-          {
-
-            amount = commission - (deliveries[i].commission.insurance + deliveries[i].commission.treasury)
-          }
+            if (actors[k].payment[l].who == "owner")
+            {
+              actors[k].payment[l].amount = deliveries[i].price - commission;
+            }
+            if (actors[k].payment[l].who == "treasury")
+            {
+              actors[k].payment[l].amount = 1 + Math.floor(deliveries[i].distance / 500);
+            }
+            if (actors[k].payment[l].who == "insurance")
+            {
+              actors[k].payment[l].amount = commission / 2;
+            }
+            if (actors[k].payment[l].who == "convargo")
+            {
+              actors[k].payment[l].amount = commission - (deliveries[i].commission.insurance + deliveries[i].commission.treasury)
+            }
         }
-
-  }*/
+      }
+    }
 
 }
 console.log(deliveries);
