@@ -190,11 +190,16 @@ for(var i=0; i<deliveries.length; i++)
   //Exercice 4
   if (deliveries[i].options.deductibleReduction == true)
   {
+      deliveries[i].price = deliveries[i].price + 200;
       deliveries[i].commission.convargo = deliveries[i].commission.convargo + (deliveries[i].volume);
+  }
+  else
+  {
+    deliveries[i].price = deliveries[i].price + 1000;
   }
 
   //Exercice 5
-  for(var k=0; k<actors.length; k++)
+  /*for(var k=0; k<actors.length; k++)
   {
         var amount = 0;
         if (deliveries[i].id === actors[k].deliveryId)
@@ -226,7 +231,7 @@ for(var i=0; i<deliveries.length; i++)
           }
         }
 
-  }
+  }*/
 
 }
 console.log(deliveries);
